@@ -1,0 +1,17 @@
+07/04/2023
+
+
+-----Expenses----
+hamburger			60
+steak			120
+French fries		45	
+hot dog			30
+sandwich			40
+Salad			55
+
+
+----Income----
+Fater 		1200
+weekend		700
+working		500
+sister		20

@@ -1,3 +1,1 @@
-Income ->  Date: 07/04/2023 Note: Fater Amount: 1200.0
-Expenses ->  Date: 07/04/2023 Note: hamburger	 Amount: 60.0
-Expenses ->  Date: 07/04/2023 Note: steak	 Amount: 120.0
+

@@ -31,7 +31,6 @@ public class addTx <T> extends JPanel
 
     public JButton btnAdd(JTextArea listArea,JLabel total1,JLabel income2,JLabel income3,JLabel income1,JLabel expenses2,JLabel expenses3,JLabel expenses1 ,JLabel revenue1)
     {
-        //เรียกข้อมูลใหม่ในData.txt
         try 
         {
             File file = new File("Data.txt");
@@ -55,7 +54,7 @@ public class addTx <T> extends JPanel
         {
             e.printStackTrace();
         }
-        JButton addTx = new JButton("Add");//สร้างปุ่มadd
+        JButton addTx = new JButton("Add");
         setMaximumSize(maxLabelSize);
 
         addTx.setFont(fontbtn);
@@ -67,14 +66,14 @@ public class addTx <T> extends JPanel
             @Override
             public void actionPerformed(ActionEvent e)
             {
-                Selector(listArea,total1,income2,income3,income1,expenses2,expenses3,expenses1,revenue1); //ส่งไปmethod Selector
-                FrameStarter(); //กำหนดframe
+                Selector(listArea,total1,income2,income3,income1,expenses2,expenses3,expenses1,revenue1); 
+                FrameStarter();
             }
         });
         return addTx ;
     }
 
-    public void FrameStarter()//กำหนดframe
+    public void FrameStarter()
     {
         frame.setTitle("ADD");
         frame.setSize(400, 250);
@@ -83,18 +82,18 @@ public class addTx <T> extends JPanel
         frame.setResizable(false);
     }
 
-    //หน้าต่างSelector
+
     public void Selector(JTextArea listArea,JLabel total1,JLabel income2,JLabel income3,JLabel income1,JLabel expenses2,JLabel expenses3,JLabel expenses1 ,JLabel revenue1)
     {
-        JPanel panelSelector = new JPanel();    //panelหน้าทั้งหมดของAdd
-        JPanel panelbtnSelector = new JPanel(); //panelเชื่อมหน้าของปุ่ม income และ expenses
-        JPanel panelIncome = new JPanel();      //panelปุ่มincome
-        JPanel panelExpenses = new JPanel();    //panelปุ่มexpenses
+        JPanel panelSelector = new JPanel();   
+        JPanel panelbtnSelector = new JPanel(); 
+        JPanel panelIncome = new JPanel();   
+        JPanel panelExpenses = new JPanel();  
 
         JToggleButton btnIncome = new JToggleButton("Income",true);
         JToggleButton btnExpenses = new JToggleButton("Expenses",false);
-        btnExpenses.setMargin(new Insets(0, 60, 0, 60));    //ปรับขนาดปุ่ม
-        btnIncome.setMargin(new Insets(0, 60, 0, 60));      //ปรับขนาดปุ่ม
+        btnExpenses.setMargin(new Insets(0, 60, 0, 60));
+        btnIncome.setMargin(new Insets(0, 60, 0, 60));     
         btnExpenses.setFont(fontbtn);
         btnIncome.setFont(fontbtn);
 
@@ -103,46 +102,46 @@ public class addTx <T> extends JPanel
         panelIncome.setLayout(new BoxLayout(panelIncome,BoxLayout.Y_AXIS));
         panelExpenses.setLayout(new BoxLayout(panelExpenses,BoxLayout.Y_AXIS));
         
-        panelIncome.add(Income(listArea,total1,income2,income3,income1,expenses2,expenses3,expenses1,revenue1)); //จัดหน้าของIncome
-        panelExpenses.add(Expenses(listArea,total1,income2,income3,income1,expenses2,expenses3,expenses1,revenue1)); //จัดหน้าของExpenese
+        panelIncome.add(Income(listArea,total1,income2,income3,income1,expenses2,expenses3,expenses1,revenue1)); 
+        panelExpenses.add(Expenses(listArea,total1,income2,income3,income1,expenses2,expenses3,expenses1,revenue1)); 
 
         panelbtnSelector.add(btnIncome);
         panelbtnSelector.add(btnExpenses);
 
-        //จัดหน้าของADD
+
         panelSelector.add(panelbtnSelector);
         panelSelector.add(Box.createRigidArea(new Dimension(0,10)));
         panelSelector.add(panelIncome);
         panelSelector.add(panelExpenses);
         panelExpenses.setVisible(false);
 
-        btnIncome.addActionListener(new ActionListener()  //action btnIncome
+        btnIncome.addActionListener(new ActionListener()  
         {
             @Override
             public void actionPerformed(ActionEvent e) 
             {
                 if(btnIncome.isSelected())
                     btnExpenses.setSelected(false);
-                    panelIncome.setVisible(true); //เปิดหน้าต่างIncome
-                    panelExpenses.setVisible(false);  //ปิดหน้าต่างExpenese
+                    panelIncome.setVisible(true);
+                    panelExpenses.setVisible(false); 
             }
         });
 
-        btnExpenses.addActionListener(new ActionListener() //action btnExpenese
+        btnExpenses.addActionListener(new ActionListener() 
         {
             @Override
             public void actionPerformed(ActionEvent e) 
             {
                 if(btnExpenses.isSelected())
                     btnIncome.setSelected(false);
-                    panelIncome.setVisible(false);  //ปิดหน้าต่างIncome
-                    panelExpenses.setVisible(true); //เปิดหน้าต่างExpenese
+                    panelIncome.setVisible(false); 
+                    panelExpenses.setVisible(true); 
             }
         });
         frame.add(panelSelector);
     }
 
-    //หน้าต่างIncome
+
     public JPanel Income(JTextArea listArea,JLabel total1,JLabel income2,JLabel income3,JLabel income1,JLabel expenses2,JLabel expenses3,JLabel expenses1 ,JLabel revenue1) 
     {
         JPanel panel = new JPanel();
@@ -170,7 +169,7 @@ public class addTx <T> extends JPanel
         panel.add(amountTf);
         panel.add(Submitbtn);
 
-        Submitbtn.addActionListener(new ActionListener() //action btnSubmit
+        Submitbtn.addActionListener(new ActionListener() 
         {
             public void actionPerformed(ActionEvent e) 
             {
@@ -179,17 +178,17 @@ public class addTx <T> extends JPanel
                 notedatetime = noteTf.getText();
                 amountdatetime1 = amountTf.getText();
 
-                DateFormat dateFormat = new SimpleDateFormat("dd/mm/yyyy"); //ฟิกค่าว่าให้เขียนเวลาตามนี้
+                DateFormat dateFormat = new SimpleDateFormat("dd/mm/yyyy");
                 try
                 {
-                    amountDouble = Double.parseDouble(amountdatetime1);//ฟิกค่าว่าให้เขียนตัวเลข
+                    amountDouble = Double.parseDouble(amountdatetime1);
                     date = dateFormat.parse(datetime);
                     arrData.add((T) date);
                     arrData.add((T) notedatetime);
                     arrData.add((T) Double.valueOf(amountDouble));
 
-                    double incomeArr = (double)arrData.get(2); //รับค่าamoutของincome
-                    income += incomeArr; //หาค่าincomeทั้งหมด
+                    double incomeArr = (double)arrData.get(2); 
+                    income += incomeArr; 
                     amountTotal = income - expreses;
 
                     double incomePercent =  (income/ (income + expreses)) * 100;
@@ -200,20 +199,20 @@ public class addTx <T> extends JPanel
                     String expresespercentstr = String.format("%.2f",expresesPercent);
                     String revenuepercentstr = String.format("%.2f",revenuePercent);
 
-                    total1.setText(String.valueOf(amountTotal));        //แสดงค่าtotalหน้าoverview
-                    income1.setText(String.valueOf(income));            //แสดงค่าincomeหน้าoverview
-                    expenses1.setText(String.valueOf(expreses));        //แสดงค่าexpensesหน้าoverview  
-                    income2.setText(amountdatetime1);                   //แสดงค่าincomeหน้าSummaries
-                    expenses2.setText(String.valueOf(expreseslast));    //แสดงค่าexpensesหน้าSummaries
-                    income3.setText(incomepercentstr+"%");              //แสดงค่าincome%หน้าSummaries
-                    expenses3.setText(expresespercentstr+"%");          //แสดงค่าexpenses%หน้าSummaries
-                    revenue1.setText(revenuepercentstr+"%");            //แสดงค่าrevenue%หน้าSummaries
+                    total1.setText(String.valueOf(amountTotal));    
+                    income1.setText(String.valueOf(income));          
+                    expenses1.setText(String.valueOf(expreses));     
+                    income2.setText(amountdatetime1);                 
+                    expenses2.setText(String.valueOf(expreseslast));   
+                    income3.setText(incomepercentstr+"%");             
+                    expenses3.setText(expresespercentstr+"%");         
+                    revenue1.setText(revenuepercentstr+"%");           
 
                     listArea.setFont(new Font("FC Galaxy",Font.BOLD,20));
                     listArea.setForeground(new Color(41, 128, 185 ));
                     listArea.append("Income -> "+" Date: "+dateFormat.format(arrData.get(0)) + " Note: " + arrData.get(1) + " Amount: " + arrData.get(2) +  "\n");
                     
-                    //ทำการส่งค่าไปใส่ในData.txt
+              
                     try   
                     {
                         File fileName = new File("Data.txt");
@@ -235,7 +234,7 @@ public class addTx <T> extends JPanel
                     {
                         a.printStackTrace();
                     }
-                    //ทำการส่งค่าไปใส่ในHistory.txt
+       
                     try 
                     {
                         File fileName = new File("History.txt");
@@ -260,7 +259,7 @@ public class addTx <T> extends JPanel
         return panel;
     }
 
-    //หน้าต่างExpenses
+
     public JPanel Expenses(JTextArea listArea,JLabel total1,JLabel income2,JLabel income3,JLabel income1,JLabel expenses2,JLabel expenses3,JLabel expenses1 ,JLabel revenue1) 
     {
         JPanel panel = new JPanel();
@@ -317,20 +316,20 @@ public class addTx <T> extends JPanel
                     String expresespercentstr = String.format("%.2f",expresesPercent);
                     String revenuepercentstr = String.format("%.2f",revenuePercent);
 
-                    total1.setText(String.valueOf(amountTotal));            //แสดงค่าtotalหน้าoverview
-                    income1.setText(String.valueOf(income));                //แสดงค่าincomeหน้าoverview
-                    expenses1.setText(String.valueOf(expreses));            //แสดงค่าexpensesหน้าoverview 
-                    income2.setText(amountdatetime1);                       //แสดงค่าincomeหน้าSummaries
-                    expenses2.setText(String.valueOf(expreseslast));        //แสดงค่าexpensesหน้าSummaries
-                    income3.setText(incomepercentstr+"%");                  //แสดงค่าincome%หน้าSummaries
-                    expenses3.setText(expresespercentstr+"%");              //แสดงค่าexpenses%หน้าSummaries
-                    revenue1.setText(revenuepercentstr+"%");                //แสดงค่าrevenue%หน้าSummaries
+                    total1.setText(String.valueOf(amountTotal));        
+                    income1.setText(String.valueOf(income));           
+                    expenses1.setText(String.valueOf(expreses));           
+                    income2.setText(amountdatetime1);                     
+                    expenses2.setText(String.valueOf(expreseslast));   
+                    income3.setText(incomepercentstr+"%");              
+                    expenses3.setText(expresespercentstr+"%");             
+                    revenue1.setText(revenuepercentstr+"%");              
                     
                     listArea.setFont(new Font("FC Galaxy",Font.BOLD,20));
                     listArea.setForeground(new Color(41, 128, 185 ));
                     listArea.append("Expenses -> "+" Date: "+ format.format(arrData2.get(0))+ " Note: " + arrData2.get(1) + " Amount: " + arrData2.get(2) +  "\n");
                     
-                    //ทำการส่งค่าไปใส่ในData.txt
+        
                     try 
                     {
                         File fileName = new File("Data.txt");
@@ -352,7 +351,7 @@ public class addTx <T> extends JPanel
                     {
                         a.printStackTrace();
                     }
-                    //ทำการส่งค่าไปใส่ในHistory.txt
+           
                     try 
                     {
                         File fileName = new File("History.txt");
@@ -364,11 +363,11 @@ public class addTx <T> extends JPanel
                         a.printStackTrace();
                     }
                 } 
-                catch (ParseException ex) //เขียนวันไม่ตรงจะแจ้งเตือน
+                catch (ParseException ex)
                 {
                     JOptionPane.showMessageDialog(null, "Invalid date format!!!", "Error", JOptionPane.ERROR_MESSAGE);
                 }
-                catch (NumberFormatException ex) //เขียนเลขไม่ตรงจะแจ้งเตือน
+                catch (NumberFormatException ex)
                 {
                     JOptionPane.showMessageDialog(null, "Invalid Value!!!!", "Error", JOptionPane.ERROR_MESSAGE);
                 }

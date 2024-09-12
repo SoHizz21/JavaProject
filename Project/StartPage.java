@@ -13,13 +13,13 @@ public class StartPage extends JFrame
     {
         icon = (new ImageIcon(((new ImageIcon(iconImage.getAbsolutePath())).getImage()).getScaledInstance(350, 350, java.awt.Image.SCALE_SMOOTH)));
 
-        JPanel panel1 = new JPanel(); //panelsหลัก
+        JPanel panel1 = new JPanel(); 
         
-        JLabel ImageLabel = new JLabel(icon); //icon
-        JPanel panelForHoldIcon = new JPanel(); //รองรับpanel icon
+        JLabel ImageLabel = new JLabel(icon); 
+        JPanel panelForHoldIcon = new JPanel(); 
         
-        JPanel panelforlabel1= new JPanel(); // รองรับlabel
-        JPanel panelforbutton1= new JPanel(); //รองรับbutton
+        JPanel panelforlabel1= new JPanel();
+        JPanel panelforbutton1= new JPanel(); 
         
         panel1.setBackground(color); 
         panelForHoldIcon.setBackground(color);
@@ -40,14 +40,14 @@ public class StartPage extends JFrame
         panelforlabel1.add(label1);
         panelforbutton1.add(button);
         
-        panel1.setLayout(new BoxLayout(panel1,BoxLayout.Y_AXIS)); //ใช้แบบboxlayout จัดเป็นแกนY
+        panel1.setLayout(new BoxLayout(panel1,BoxLayout.Y_AXIS));
         panel1.add(Box.createRigidArea(new Dimension(0,30)));
         panel1.add(panelforlabel1);
         panel1.add(panelForHoldIcon);
         panel1.add(Box.createRigidArea(new Dimension(0,20)));
         panel1.add(panelforbutton1);
         
-        button.addActionListener(new ActionListener()  //
+        button.addActionListener(new ActionListener()  
         {
             @Override
             public void actionPerformed(ActionEvent e) 

@@ -12,19 +12,19 @@ import java.io.IOException;
 
 public class Page extends JFrame
 {  
-    private Color color =  new Color(30,158,159); //สีหลัก
+    private Color color =  new Color(30,158,159); 
     private Font font1 = new Font("FC Galaxy",Font.BOLD,60);
 
-    private JLabel total1 = new JLabel(); //เงินเหลือ
-    private JLabel income1 = new JLabel() ; //รายรับ
-    private JLabel expenses1  = new JLabel(); //รายจ่าย
+    private JLabel total1 = new JLabel();
+    private JLabel income1 = new JLabel() ;
+    private JLabel expenses1  = new JLabel();
 
-    private JLabel income2 = new JLabel(); //รายรับล่าสุด
-    private JLabel expenses2 = new JLabel(); //รายรับ
+    private JLabel income2 = new JLabel(); 
+    private JLabel expenses2 = new JLabel();
     
-    private JLabel income3 = new JLabel(); //รายรับทั้งหมด%
-    private JLabel expenses3 = new JLabel(); //รายจ่ายทั้งหมด%
-    private JLabel revenue1 = new JLabel("0.0"); //ผลต่างรายรับรายจ่าย%
+    private JLabel income3 = new JLabel(); 
+    private JLabel expenses3 = new JLabel(); 
+    private JLabel revenue1 = new JLabel("0.0");
 
     public Page() 
     {
@@ -65,15 +65,15 @@ public class Page extends JFrame
     private void createPage()
     {
         
-        JPanel panelOverview = new JPanel();    //หน้าOverview
-        JPanel panelHistory = new JPanel();     //หน้าHistory
-        JPanel panelSummaries = new JPanel();   //หน้าSummaries
+        JPanel panelOverview = new JPanel();    
+        JPanel panelHistory = new JPanel();    
+        JPanel panelSummaries = new JPanel();   
         
         panelOverview .setBackground(color);
         panelHistory.setBackground(color);
         panelSummaries.setBackground(color);
         
-        //FrameOverview
+     
         JPanel panelforbtnmenuOverview = new JPanel();
         JPanel panelforLabelOverview = new JPanel();
         JLabel labelOverview = new JLabel("Overview!");
@@ -83,7 +83,7 @@ public class Page extends JFrame
         
         panelforLabelOverview.add(labelOverview);
         
-        //จัดหน้าปุ่ม
+
         buttonmenu btnmenu = new buttonmenu();
         panelforbtnmenuOverview.setBackground(color);
         panelforbtnmenuOverview.setLayout(new BoxLayout(panelforbtnmenuOverview,BoxLayout.X_AXIS));
@@ -93,7 +93,7 @@ public class Page extends JFrame
         panelforbtnmenuOverview.add(Box.createRigidArea(new Dimension(40,0)));
         panelforbtnmenuOverview.add(btnmenu.getSummaries(panelOverview,panelHistory,panelSummaries));
         
-        //จัดหน้าframeของOverview
+
         panelOverview.add(Box.createRigidArea(new Dimension(0,100)));
         panelOverview.add(panelforLabelOverview);
         panelOverview.add(Box.createRigidArea(new Dimension(0,20)));
@@ -104,7 +104,7 @@ public class Page extends JFrame
         add(panelOverview);
         
         
-            //Frame History
+
             addTx process = new addTx();
             
             JPanel panelforbtnmenuHistory = new JPanel();
@@ -113,10 +113,10 @@ public class Page extends JFrame
             JPanel panelforListHistory = new JPanel();
             JPanel panelforbtn = new JPanel();
             
-            JTextArea textArea = new JTextArea(); //หน้าที่มีlist
-            textArea.setEditable( false );      //บล็อกtextareaไม่ได้ให้แก้ไข้ได้
+            JTextArea textArea = new JTextArea();
+            textArea.setEditable( false );    
 
-                    File file = new File("History.txt"); //ให้รันไฟล์จากHistory
+                    File file = new File("History.txt"); 
                     try 
                     {
                         FileReader fileReader = new FileReader(file);
@@ -151,7 +151,7 @@ public class Page extends JFrame
             panelforListHistory.add(scrollFrameOpen);
             panelforbtn.add(panelforAdd);
 
-            //จัดหน้าปุ่ม
+
             buttonmenu btnmenuhis = new buttonmenu();
             panelforbtnmenuHistory.setLayout(new BoxLayout(panelforbtnmenuHistory,BoxLayout.X_AXIS));
             panelforbtnmenuHistory.add(btnmenuhis.getOverview(panelOverview,panelHistory,panelSummaries));
@@ -160,14 +160,14 @@ public class Page extends JFrame
             panelforbtnmenuHistory.add(Box.createRigidArea(new Dimension(40,0)));
             panelforbtnmenuHistory.add(btnmenuhis.getSummaries(panelOverview,panelHistory,panelSummaries));
             
-            //จัดbtn menuและadd
+  
             panelforbtn.setLayout(new BoxLayout(panelforbtn,BoxLayout.Y_AXIS));
             panelforbtn.add(Box.createRigidArea(new Dimension(0,20)));
-            panelforbtn.add(panelforbtnmenuHistory); //btnmenu
+            panelforbtn.add(panelforbtnmenuHistory);
             panelforAdd.setLayout(new BoxLayout(panelforAdd,BoxLayout.X_AXIS));
             panelforAdd.add(process.btnAdd(textArea,total1, income2 , income3,income1, expenses2 , expenses3,expenses1,revenue1));
             
-            //จัดหน้าframeของHistory
+    
             panelHistory.setLayout(new BoxLayout(panelHistory,BoxLayout.Y_AXIS));
             panelHistory.add(Box.createRigidArea(new Dimension(0,20)));
             panelHistory.add(panelforLabelHistory);
@@ -180,10 +180,10 @@ public class Page extends JFrame
             panelHistory.setVisible(false);
 
 
-        // Frame Summaries
+
         JPanel panelforbtnmenuSummaries = new JPanel();
         JPanel panelforLabelSummaries = new JPanel();
-        Dimension maxLabelSize = new Dimension(500, 50); //บังคับขนาด
+        Dimension maxLabelSize = new Dimension(500, 50); 
         
         JLabel labelSummaries = new JLabel("Summaries!");
         labelSummaries.setForeground(Color.WHITE);
@@ -191,9 +191,9 @@ public class Page extends JFrame
         
         panelforLabelSummaries.setBackground(color);
         panelforLabelSummaries.add(labelSummaries);
-        panelforLabelSummaries.setMaximumSize(maxLabelSize);//เซ็ตขนาดlabelให้=maxLabelSize
+        panelforLabelSummaries.setMaximumSize(maxLabelSize);
     
-        //จัดหน้าปุ่ม
+    
         buttonmenu btnmenusum = new buttonmenu();
         panelforbtnmenuSummaries.setBackground(color);
         panelforbtnmenuSummaries.setLayout(new BoxLayout(panelforbtnmenuSummaries,BoxLayout.X_AXIS));
@@ -203,7 +203,7 @@ public class Page extends JFrame
         panelforbtnmenuSummaries.add(Box.createRigidArea(new Dimension(40,0)));
         panelforbtnmenuSummaries.add(btnmenusum.getSummaries(panelOverview,panelHistory,panelSummaries));
 
-        //จัดหน้าframeของHistory Summaries
+    
         panelSummaries.setLayout(new BoxLayout(panelSummaries,BoxLayout.Y_AXIS));
         panelSummaries.add(Box.createRigidArea(new Dimension(0,20)));
         panelSummaries.add(panelforLabelSummaries);
@@ -266,7 +266,7 @@ public class Page extends JFrame
         UpdateSummaries.setBackground(new Color(22, 48, 70));
         panel.setBackground(new Color(47,183,163));
 
-        //ส่วนของLatest
+
         JLabel labelLatest = new JLabel("Latest");
         JLabel labelIncome = new JLabel("Income");
         JLabel labelExpense = new JLabel("Expense");
@@ -293,7 +293,7 @@ public class Page extends JFrame
         UpdateSummaries.add(panel);
 
 
-        //ส่วนของPercent
+ 
         JPanel panel2 = new JPanel(new GridLayout(3, 2,10,1));
         panel2.setBackground(new Color(47,183,163));
 

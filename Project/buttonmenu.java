@@ -4,9 +4,9 @@ import javax.swing.*;
 
 public class buttonmenu
 {
-    private JButton btnOverview = new JButton("Overview");      //ปุ่มOverview
-    private JButton btnHistory = new JButton("History");        //ปุ่มHistory
-    private JButton btnSummaries = new JButton("Summaries");    //ปุ่มSummaries
+    private JButton btnOverview = new JButton("Overview");   
+    private JButton btnHistory = new JButton("History");     
+    private JButton btnSummaries = new JButton("Summaries");   
 
     public buttonmenu() 
     {
@@ -16,7 +16,7 @@ public class buttonmenu
         btnSummaries.setFont(fontbtn);
     }
 
-    //actionbuttonOverview
+
     public JButton getOverview(JPanel page1,JPanel page2,JPanel page3)
     {
         btnOverview.addActionListener(new ActionListener()
@@ -33,7 +33,7 @@ public class buttonmenu
     }
 
 
-    //actionbuttonHistory
+
     public JButton getHistory(JPanel page1,JPanel page2,JPanel page3)
     {
         btnHistory.addActionListener(new ActionListener() 
@@ -49,7 +49,7 @@ public class buttonmenu
         return btnHistory;
     }
 
-    //actionbuttonSummaries
+
     public JButton getSummaries(JPanel page1,JPanel page2,JPanel page3)
     {
         btnSummaries.addActionListener(new ActionListener() 
